@@ -1,0 +1,166 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const services = [
+  { title: '送迎サービス', description: 'ご自宅から施設まで、専用車両で安全に送迎いたします。' },
+  { title: '入浴サービス', description: '一般浴、機械浴を完備。介助が必要な方も安心して入浴いただけます。' },
+  { title: '食事サービス', description: '栄養バランスの取れた美味しい食事を提供します。' },
+  { title: 'レクリエーション', description: '季節の行事やゲーム、創作活動など、楽しく過ごせるプログラムを用意しています。' },
+  { title: '機能訓練', description: '専門スタッフによる個別の機能訓練で、身体機能の維持・向上を図ります。' },
+  { title: '健康チェック', description: '毎回、血圧・体温などをチェックし、健康状態を把握します。' },
+];
+
+const schedule = [
+  { time: '8:30〜', activity: 'お迎え' },
+  { time: '9:30〜', activity: '到着・健康チェック' },
+  { time: '10:00〜', activity: '入浴・機能訓練' },
+  { time: '12:00〜', activity: '昼食' },
+  { time: '13:00〜', activity: '休憩' },
+  { time: '14:00〜', activity: 'レクリエーション・おやつ' },
+  { time: '15:30〜', activity: 'お送り' },
+];
+---
+
+<BaseLayout 
+  title="デイサービス" 
+  description="柏原けやき苑のデイサービスのご案内。入浴、食事、レクリエーションなど、充実したサービスを提供します。"
+>
+  <!-- Page Header -->
+  <section class="bg-keyaki-800 text-white py-16 md:py-24">
+    <div class="container-main">
+      <p class="text-keyaki-300 text-sm tracking-widest uppercase mb-4">Day Service</p>
+      <h1 class="text-3xl md:text-4xl font-serif font-medium">デイサービス</h1>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <div class="bg-white border-b border-gray-100">
+    <div class="container-main py-3">
+      <nav class="text-sm text-gray-500">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-keyaki-700">ホーム</a></li>
+          <li>/</li>
+          <li><a href="/services/" class="hover:text-keyaki-700">支援サービス</a></li>
+          <li>/</li>
+          <li class="text-gray-900">デイサービス</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Overview -->
+  <section class="py-16 md:py-24">
+    <div class="container-main">
+      <div class="max-w-4xl mx-auto">
+        <div class="prose prose-lg">
+          <p class="text-lg text-gray-700 leading-relaxed">
+            理念である「愛の心」のもと、笑顔を忘れず、ともに楽しみ、ともに喜び合い、
+            心のこもった介護・支援を常に心がけています。
+          </p>
+          <p class="text-lg text-gray-700 leading-relaxed mt-4">
+            日帰りで施設をご利用いただき、入浴、食事、レクリエーションなどを通じて、
+            心身のリフレッシュと機能維持を図ります。
+            ご家族の介護負担軽減にもお役立ていただけます。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="container-main">
+      <div class="text-center mb-12">
+        <p class="section-subtitle">Services</p>
+        <h2 class="section-title">サービス内容</h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {services.map((service) => (
+          <div class="card p-6">
+            <h3 class="text-lg font-medium text-gray-900 mb-2">{service.title}</h3>
+            <p class="text-gray-600 text-sm">{service.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Schedule -->
+  <section class="py-16 md:py-24">
+    <div class="container-main">
+      <div class="text-center mb-12">
+        <p class="section-subtitle">Daily Schedule</p>
+        <h2 class="section-title">一日の流れ</h2>
+      </div>
+      <div class="max-w-2xl mx-auto">
+        <div class="card overflow-hidden">
+          <div class="divide-y divide-gray-100">
+            {schedule.map((item) => (
+              <div class="flex items-center p-4">
+                <span class="w-24 text-keyaki-700 font-medium">{item.time}</span>
+                <span class="text-gray-700">{item.activity}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <p class="text-sm text-gray-500 mt-4 text-center">
+          ※時間は目安です。状況により変更になる場合があります。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Info -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="container-main">
+      <div class="text-center mb-12">
+        <p class="section-subtitle">Information</p>
+        <h2 class="section-title">ご利用案内</h2>
+      </div>
+      <div class="max-w-3xl mx-auto">
+        <div class="card overflow-hidden">
+          <table class="w-full">
+            <tbody class="divide-y divide-gray-100">
+              <tr>
+                <th class="px-6 py-4 text-left text-sm font-medium text-gray-500 bg-gray-50 w-1/3">定員</th>
+                <td class="px-6 py-4 text-gray-900">40名</td>
+              </tr>
+              <tr>
+                <th class="px-6 py-4 text-left text-sm font-medium text-gray-500 bg-gray-50">対象者</th>
+                <td class="px-6 py-4 text-gray-900">要支援1・2、要介護1〜5の認定を受けた方</td>
+              </tr>
+              <tr>
+                <th class="px-6 py-4 text-left text-sm font-medium text-gray-500 bg-gray-50">営業日</th>
+                <td class="px-6 py-4 text-gray-900">月曜日〜土曜日（日曜・祝日休み）</td>
+              </tr>
+              <tr>
+                <th class="px-6 py-4 text-left text-sm font-medium text-gray-500 bg-gray-50">サービス時間</th>
+                <td class="px-6 py-4 text-gray-900">9:30〜16:30</td>
+              </tr>
+              <tr>
+                <th class="px-6 py-4 text-left text-sm font-medium text-gray-500 bg-gray-50">送迎エリア</th>
+                <td class="px-6 py-4 text-gray-900">丹波市内（詳細はお問い合わせください）</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-keyaki-50">
+    <div class="container-main text-center">
+      <p class="text-gray-600 mb-6">
+        デイサービスに関するご相談、見学も随時受け付けております。
+      </p>
+      <a href="/contact/" class="btn-primary">
+        お問い合わせ
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"/>
+          <path d="m12 5 7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

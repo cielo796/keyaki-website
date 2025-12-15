@@ -1,0 +1,260 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const philosophy = [
+  {
+    title: '基本理念',
+    content: '「愛の心」をもって、利用者様の尊厳を守り、一人ひとりの個性と生活を尊重した質の高い介護サービスを提供します。',
+  },
+  {
+    title: '基本方針',
+    items: [
+      '利用者様の立場に立った心のこもった介護サービスの提供',
+      '利用者様の自立支援と尊厳の保持',
+      '地域に開かれた施設づくりと地域福祉への貢献',
+      '職員の資質向上と働きやすい職場環境の整備',
+    ],
+  },
+];
+
+const history = [
+  { year: '平成10年', event: '社会福祉法人丹波柏原福祉会設立' },
+  { year: '平成11年', event: '特別養護老人ホーム柏原けやき苑開設（従来型80床）' },
+  { year: '平成11年', event: 'デイサービスセンター開設' },
+  { year: '平成11年', event: 'ショートステイ開設' },
+  { year: '平成11年', event: '居宅介護支援事業所開設' },
+  { year: '平成23年', event: 'ユニット型特別養護老人ホーム増設（20床）' },
+];
+---
+
+<BaseLayout 
+  title="事業所案内" 
+  description="柏原けやき苑の理念、沿革、施設概要についてご紹介します。"
+>
+  <!-- Page Header -->
+  <section class="bg-keyaki-800 text-white py-16 md:py-24">
+    <div class="container-main">
+      <p class="text-keyaki-300 text-sm tracking-widest uppercase mb-4">About</p>
+      <h1 class="text-3xl md:text-4xl font-serif font-medium">事業所案内</h1>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <div class="bg-white border-b border-gray-100">
+    <div class="container-main py-3">
+      <nav class="text-sm text-gray-500">
+        <ol class="flex items-center gap-2">
+          <li><a href="/" class="hover:text-keyaki-700">ホーム</a></li>
+          <li>/</li>
+          <li class="text-gray-900">事業所案内</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Philosophy Section -->
+  <section class="py-16 md:py-24">
+    <div class="container-main">
+      <div class="text-center mb-12">
+        <p class="section-subtitle">Philosophy</p>
+        <h2 class="section-title">理念・方針</h2>
+      </div>
+      <div class="max-w-4xl mx-auto space-y-12">
+        {philosophy.map((item) => (
+          <div class="card p-8 md:p-10">
+            <h3 class="text-xl font-medium text-keyaki-800 mb-4 pb-4 border-b border-gray-100">
+              {item.title}
+            </h3>
+            {item.content && (
+              <p class="text-gray-700 leading-relaxed text-lg">{item.content}</p>
+            )}
+            {item.items && (
+              <ul class="space-y-3">
+                {item.items.map((text, index) => (
+                  <li class="flex items-start gap-3">
+                    <span class="w-6 h-6 bg-keyaki-100 text-keyaki-700 rounded-full flex items-center justify-center text-sm font-medium flex-shrink-0">
+                      {index + 1}
+                    </span>
+                    <span class="text-gray-700">{text}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Facility Overview -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="container-main">
+      <div class="text-center mb-12">
+        <p class="section-subtitle">Facility</p>
+        <h2 class="section-title">施設概要</h2>
+      </div>
+      <div class="max-w-4xl mx-auto">
+        <div class="card overflow-hidden">
+          <table class="w-full">
+            <tbody class="divide-y divide-gray-100">
+              <tr>
+                <th class="px-6 py-4 text-left text-sm font-medium text-gray-500 bg-gray-50 w-1/3">法人名</th>
+                <td class="px-6 py-4 text-gray-900">社会福祉法人 丹波柏原福祉会</td>
+              </tr>
+              <tr>
+                <th class="px-6 py-4 text-left text-sm font-medium text-gray-500 bg-gray-50">施設名称</th>
+                <td class="px-6 py-4 text-gray-900">柏原けやき苑</td>
+              </tr>
+              <tr>
+                <th class="px-6 py-4 text-left text-sm font-medium text-gray-500 bg-gray-50">代表者</th>
+                <td class="px-6 py-4 text-gray-900">理事長 上山 知己</td>
+              </tr>
+              <tr>
+                <th class="px-6 py-4 text-left text-sm font-medium text-gray-500 bg-gray-50">所在地</th>
+                <td class="px-6 py-4 text-gray-900">
+                  〒669-3313<br />
+                  兵庫県丹波市柏原町北山289-1
+                </td>
+              </tr>
+              <tr>
+                <th class="px-6 py-4 text-left text-sm font-medium text-gray-500 bg-gray-50">電話番号</th>
+                <td class="px-6 py-4 text-gray-900">
+                  <a href="tel:0795-73-1185" class="text-keyaki-700 hover:underline">0795-73-1185</a>
+                </td>
+              </tr>
+              <tr>
+                <th class="px-6 py-4 text-left text-sm font-medium text-gray-500 bg-gray-50">FAX番号</th>
+                <td class="px-6 py-4 text-gray-900">0795-73-1187</td>
+              </tr>
+              <tr>
+                <th class="px-6 py-4 text-left text-sm font-medium text-gray-500 bg-gray-50">メールアドレス</th>
+                <td class="px-6 py-4 text-gray-900">
+                  <a href="mailto:keyaki-k@theia.ocn.ne.jp" class="text-keyaki-700 hover:underline">keyaki-k@theia.ocn.ne.jp</a>
+                </td>
+              </tr>
+              <tr>
+                <th class="px-6 py-4 text-left text-sm font-medium text-gray-500 bg-gray-50">定員</th>
+                <td class="px-6 py-4 text-gray-900">
+                  特別養護老人ホーム（従来型）80名<br />
+                  特別養護老人ホーム（ユニット型）20名<br />
+                  ショートステイ 10名<br />
+                  デイサービス 40名
+                </td>
+              </tr>
+              <tr>
+                <th class="px-6 py-4 text-left text-sm font-medium text-gray-500 bg-gray-50">事業内容</th>
+                <td class="px-6 py-4 text-gray-900">
+                  <ul class="space-y-1">
+                    <li>・特別養護老人ホーム</li>
+                    <li>・ユニット型特別養護老人ホーム</li>
+                    <li>・ショートステイ</li>
+                    <li>・デイサービス</li>
+                    <li>・居宅介護支援事業所</li>
+                    <li>・配食サービス</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- History Section -->
+  <section class="py-16 md:py-24">
+    <div class="container-main">
+      <div class="text-center mb-12">
+        <p class="section-subtitle">History</p>
+        <h2 class="section-title">沿革</h2>
+      </div>
+      <div class="max-w-3xl mx-auto">
+        <div class="relative">
+          <!-- Timeline line -->
+          <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-keyaki-200"></div>
+          
+          <div class="space-y-8">
+            {history.map((item, index) => (
+              <div class="relative flex gap-6">
+                <div class="w-16 h-16 bg-keyaki-700 rounded-full flex items-center justify-center text-white font-medium text-sm z-10 flex-shrink-0">
+                  {item.year.replace('平成', 'H')}
+                </div>
+                <div class="card p-6 flex-1">
+                  <p class="text-sm text-keyaki-600 mb-1">{item.year}</p>
+                  <p class="text-gray-900">{item.event}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Access Section -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="container-main">
+      <div class="text-center mb-12">
+        <p class="section-subtitle">Access</p>
+        <h2 class="section-title">アクセス</h2>
+      </div>
+      <div class="max-w-4xl mx-auto">
+        <div class="card overflow-hidden mb-8">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3269.8!2d135.05!3d35.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDA2JzAwLjAiTiAxMzXCsDAzJzAwLjAiRQ!5e0!3m2!1sja!2sjp!4v1234567890"
+            width="100%" 
+            height="400" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="柏原けやき苑の地図"
+            class="w-full"
+          ></iframe>
+        </div>
+        <div class="card p-6">
+          <h3 class="font-medium text-gray-900 mb-4">交通アクセス</h3>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-keyaki-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8 6v6"/>
+                <path d="M15 6v6"/>
+                <path d="M2 12h19.6"/>
+                <path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"/>
+                <circle cx="7" cy="18" r="2"/>
+                <path d="M9 18h5"/>
+                <circle cx="16" cy="18" r="2"/>
+              </svg>
+              <span>JR福知山線「石生駅」より車で約10分</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-keyaki-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
+                <circle cx="7" cy="17" r="2"/>
+                <path d="M9 17h6"/>
+                <circle cx="17" cy="17" r="2"/>
+              </svg>
+              <span>舞鶴若狭自動車道「春日IC」より車で約15分</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-keyaki-50">
+    <div class="container-main text-center">
+      <p class="text-gray-600 mb-6">
+        施設見学も随時受け付けております。お気軽にお問い合わせください。
+      </p>
+      <a href="/contact/" class="btn-primary">
+        お問い合わせ
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"/>
+          <path d="m12 5 7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

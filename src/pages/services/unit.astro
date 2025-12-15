@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const features = [
+  {
+    title: '少人数での生活',
+    description: '10人程度の小規模なグループで、家庭的な雰囲気の中で生活していただけます。',
+  },
+  {
+    title: '個室での暮らし',
+    description: 'プライバシーを確保した個室で、ご自分のペースで過ごしていただけます。',
+  },
+  {
+    title: '顔なじみのスタッフ',
+    description: '担当制のスタッフが継続的にケアを行い、安心感のある関係を築きます。',
+  },
+  {
+    title: '個別対応の介護',
+    description: 'お一人おひとりの生活リズムや好みに合わせた、きめ細やかなケアを提供します。',
+  },
+];
+---
+
+<BaseLayout 
+  title="ユニット型" 
+  description="柏原けやき苑のユニット型特別養護老人ホームのご案内。家庭的な雰囲気の中で、個別ケアを提供します。"
+>
+  <!-- Page Header -->
+  <section class="bg-keyaki-800 text-white py-16 md:py-24">
+    <div class="container-main">
+      <p class="text-keyaki-300 text-sm tracking-widest uppercase mb-4">Unit Care</p>
+      <h1 class="text-3xl md:text-4xl font-serif font-medium">ユニット型</h1>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <div class="bg-white border-b border-gray-100">
+    <div class="container-main py-3">
+      <nav class="text-sm text-gray-500">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-keyaki-700">ホーム</a></li>
+          <li>/</li>
+          <li><a href="/services/" class="hover:text-keyaki-700">支援サービス</a></li>
+          <li>/</li>
+          <li class="text-gray-900">ユニット型</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Overview -->
+  <section class="py-16 md:py-24">
+    <div class="container-main">
+      <div class="max-w-4xl mx-auto">
+        <div class="prose prose-lg">
+          <p class="text-lg text-gray-700 leading-relaxed">
+            ユニット型特別養護老人ホームでは、家庭的な雰囲気を大切にし、
+            利用者様一人ひとりの個性や生活のリズムに沿ったケアを提供します。
+          </p>
+          <p class="text-lg text-gray-700 leading-relaxed mt-4">
+            10人程度の小規模なグループ（ユニット）で共同生活を送りながら、
+            プライバシーが確保された個室で、ご自分らしい暮らしを続けていただけます。
+            顔なじみのスタッフが継続的にケアを行うことで、安心感のある生活をサポートします。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="container-main">
+      <div class="text-center mb-12">
+        <p class="section-subtitle">Features</p>
+        <h2 class="section-title">ユニットケアの特徴</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {features.map((feature) => (
+          <div class="card p-6">
+            <h3 class="text-lg font-medium text-gray-900 mb-2">{feature.title}</h3>
+            <p class="text-gray-600">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Facility Info -->
+  <section class="py-16 md:py-24">
+    <div class="container-main">
+      <div class="text-center mb-12">
+        <p class="section-subtitle">Facility</p>
+        <h2 class="section-title">施設概要</h2>
+      </div>
+      <div class="max-w-3xl mx-auto">
+        <div class="card overflow-hidden">
+          <table class="w-full">
+            <tbody class="divide-y divide-gray-100">
+              <tr>
+                <th class="px-6 py-4 text-left text-sm font-medium text-gray-500 bg-gray-50 w-1/3">定員</th>
+                <td class="px-6 py-4 text-gray-900">20名（2ユニット）</td>
+              </tr>
+              <tr>
+                <th class="px-6 py-4 text-left text-sm font-medium text-gray-500 bg-gray-50">対象者</th>
+                <td class="px-6 py-4 text-gray-900">要介護3〜5の認定を受けた方</td>
+              </tr>
+              <tr>
+                <th class="px-6 py-4 text-left text-sm font-medium text-gray-500 bg-gray-50">居室</th>
+                <td class="px-6 py-4 text-gray-900">全室個室</td>
+              </tr>
+              <tr>
+                <th class="px-6 py-4 text-left text-sm font-medium text-gray-500 bg-gray-50">設備</th>
+                <td class="px-6 py-4 text-gray-900">
+                  共同リビング、キッチン、浴室、<br />
+                  トイレ、洗面所 など
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-keyaki-50">
+    <div class="container-main text-center">
+      <p class="text-gray-600 mb-6">
+        ユニット型への入所に関するご相談、施設見学も随時受け付けております。
+      </p>
+      <a href="/contact/" class="btn-primary">
+        お問い合わせ
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"/>
+          <path d="m12 5 7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

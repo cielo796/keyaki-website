@@ -1,0 +1,295 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+
+const services = [
+  {
+    title: '特別養護老人ホーム・ショートステイ',
+    description: '施設サービス計画に基づき、入浴、排泄、食事などの介護、その他日常生活上のお世話、健康管理および機能訓練などを行います。',
+    href: '/services/nursing-home/',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>',
+  },
+  {
+    title: 'ユニット型',
+    description: '家庭的な雰囲気を大切にし、利用者様一人ひとりの個性や生活のリズムに沿ったケアを提供します。',
+    href: '/services/unit/',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+  },
+  {
+    title: 'デイサービス',
+    description: '理念である「愛の心」のもと、笑顔を忘れず、ともに楽しみ、ともに喜び合い、心のこもった介護・支援を心がけています。',
+    href: '/services/day-service/',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></svg>',
+  },
+  {
+    title: '居宅介護支援事業所',
+    description: 'ケアマネジャーが利用者様の心身の状況や置かれている環境に応じた介護サービスを利用できるようケアプランを作成します。',
+    href: '/services/care-support/',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>',
+  },
+  {
+    title: '食事サービス',
+    description: '食物のバランスをよく考え、健康的な生活を送っていただけるようなメニューを提供しています。',
+    href: '/services/meal/',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>',
+  },
+  {
+    title: 'リハビリ（機能訓練）',
+    description: '歩行訓練用平行棒・訓練用階段など設備も整っており、利用者様の機能維持・向上をサポートします。',
+    href: '/services/rehabilitation/',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>',
+  },
+];
+
+const features = [
+  {
+    title: '温かい介護',
+    description: '利用者様お一人おひとりに寄り添い、心のこもったケアを提供いたします。',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>',
+  },
+  {
+    title: '安心の環境',
+    description: '丹波の自然に囲まれた静かな環境で、安心してお過ごしいただけます。',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>',
+  },
+  {
+    title: '地域との連携',
+    description: '地域の方々との交流を大切にし、開かれた施設づくりを目指しています。',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>',
+  },
+];
+---
+
+<BaseLayout title="ホーム">
+  <!-- Hero Section -->
+  <section class="relative bg-keyaki-800 text-white overflow-hidden">
+    <!-- Background pattern -->
+    <div class="absolute inset-0 opacity-10">
+      <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <defs>
+          <pattern id="hero-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <circle cx="10" cy="10" r="1" fill="currentColor" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#hero-pattern)" />
+      </svg>
+    </div>
+
+    <div class="container-main relative">
+      <div class="py-20 md:py-28 lg:py-36">
+        <div class="max-w-3xl">
+          <p class="text-keyaki-300 text-sm tracking-widest uppercase mb-4 animate-fade-in">
+            社会福祉法人 丹波柏原福祉会
+          </p>
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif font-medium leading-tight mb-6 animate-slide-up" style="animation-delay: 0.1s;">
+            住み慣れたふるさとで<br class="hidden sm:inline" />
+            心地よく温かい暮らしを
+          </h1>
+          <p class="text-lg md:text-xl text-keyaki-100 leading-relaxed mb-8 animate-slide-up" style="animation-delay: 0.2s;">
+            丹波の自然に囲まれた環境で、利用者様一人ひとりに寄り添った<br class="hidden md:inline" />
+            心のこもった介護サービスをご提供いたします。
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 animate-slide-up" style="animation-delay: 0.3s;">
+            <a href="/contact/" class="btn-primary bg-white text-keyaki-800 hover:bg-keyaki-50">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              お問い合わせ
+            </a>
+            <a href="/services/" class="btn-secondary border-white text-white hover:bg-white/10">
+              サービス一覧を見る
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Decorative wave -->
+    <div class="absolute bottom-0 left-0 right-0">
+      <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full">
+        <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#fdf8f3"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Greeting Section -->
+  <section class="py-16 md:py-24">
+    <div class="container-main">
+      <div class="max-w-4xl mx-auto text-center">
+        <p class="section-subtitle">Message</p>
+        <h2 class="section-title mb-8">ごあいさつ</h2>
+        <div class="prose prose-lg mx-auto text-gray-600 leading-loose">
+          <p>
+            近年、丹波地方の高齢化は急速に進展し、34%にも達しようとしています。<br />
+            高齢化は誰もが避けて通れない道だけに、老人福祉の充実は大きな課題になっています。
+          </p>
+          <p class="mt-4">
+            老後の生きがいは健康で生活の豊かさが実感でき、幸せに暮らせることにあり、<br />
+            これは世代を超えた私ども一人ひとりの願いでもあると思います。
+          </p>
+          <p class="mt-4">
+            私どもは「住み慣れたふるさとは心地よく温かい」と感じる丹波風土の醸成に努めると共に、<br />
+            地域の方々とも交流を深め、共に励まし合いながら、<br />
+            明るく豊かで味わいのある人生が送れるような施設づくりをして参りたいと心に誓っております。
+          </p>
+        </div>
+        <div class="mt-8 flex justify-center">
+          <a href="/about/" class="btn-secondary">
+            事業所案内を見る
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"/>
+              <path d="m12 5 7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="container-main">
+      <div class="text-center mb-12">
+        <p class="section-subtitle">Features</p>
+        <h2 class="section-title">私たちの特徴</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        {features.map((feature) => (
+          <div class="text-center p-8">
+            <div class="w-16 h-16 bg-keyaki-100 rounded-full flex items-center justify-center text-keyaki-700 mx-auto mb-6">
+              <Fragment set:html={feature.icon} />
+            </div>
+            <h3 class="text-xl font-medium text-gray-900 mb-3">{feature.title}</h3>
+            <p class="text-gray-600">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="py-16 md:py-24">
+    <div class="container-main">
+      <div class="text-center mb-12">
+        <p class="section-subtitle">Services</p>
+        <h2 class="section-title">支援サービス</h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((service) => (
+          <ServiceCard {...service} />
+        ))}
+      </div>
+      <div class="mt-12 text-center">
+        <a href="/services/" class="btn-primary">
+          すべてのサービスを見る
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"/>
+            <path d="m12 5 7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 md:py-24 bg-keyaki-700">
+    <div class="container-main">
+      <div class="max-w-3xl mx-auto text-center text-white">
+        <h2 class="text-2xl md:text-3xl font-serif font-medium mb-6">
+          お気軽にご相談ください
+        </h2>
+        <p class="text-keyaki-100 mb-8 leading-relaxed">
+          ご質問・ご相談などがございましたら、お電話やメールフォームよりお受けしています。<br class="hidden md:inline" />
+          施設見学も随時受け付けておりますので、お気軽にお問い合わせください。
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="tel:0795-73-1185" class="btn-primary bg-white text-keyaki-800 hover:bg-keyaki-50">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            0795-73-1185
+          </a>
+          <a href="/contact/" class="btn-secondary border-white text-white hover:bg-white/10">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+            メールでお問い合わせ
+          </a>
+        </div>
+        <p class="mt-6 text-sm text-keyaki-200">
+          受付時間：8:30〜17:30（日曜・祝日を除く）
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Access Section -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="container-main">
+      <div class="text-center mb-12">
+        <p class="section-subtitle">Access</p>
+        <h2 class="section-title">アクセス</h2>
+      </div>
+      <div class="grid lg:grid-cols-2 gap-8 items-start">
+        <div class="card p-8">
+          <dl class="space-y-4">
+            <div class="flex gap-4">
+              <dt class="w-24 flex-shrink-0 text-sm font-medium text-gray-500">法人名</dt>
+              <dd class="text-gray-900">社会福祉法人 丹波柏原福祉会</dd>
+            </div>
+            <div class="flex gap-4">
+              <dt class="w-24 flex-shrink-0 text-sm font-medium text-gray-500">施設名</dt>
+              <dd class="text-gray-900">柏原けやき苑</dd>
+            </div>
+            <div class="flex gap-4">
+              <dt class="w-24 flex-shrink-0 text-sm font-medium text-gray-500">理事長</dt>
+              <dd class="text-gray-900">上山 知己</dd>
+            </div>
+            <div class="flex gap-4">
+              <dt class="w-24 flex-shrink-0 text-sm font-medium text-gray-500">所在地</dt>
+              <dd class="text-gray-900">
+                〒669-3313<br />
+                兵庫県丹波市柏原町北山289-1
+              </dd>
+            </div>
+            <div class="flex gap-4">
+              <dt class="w-24 flex-shrink-0 text-sm font-medium text-gray-500">電話番号</dt>
+              <dd class="text-gray-900">
+                <a href="tel:0795-73-1185" class="text-keyaki-700 hover:underline">0795-73-1185</a>
+              </dd>
+            </div>
+            <div class="flex gap-4">
+              <dt class="w-24 flex-shrink-0 text-sm font-medium text-gray-500">メール</dt>
+              <dd class="text-gray-900">
+                <a href="mailto:keyaki-k@theia.ocn.ne.jp" class="text-keyaki-700 hover:underline">keyaki-k@theia.ocn.ne.jp</a>
+              </dd>
+            </div>
+          </dl>
+          <div class="mt-6 pt-6 border-t border-gray-100">
+            <a href="/about/" class="text-keyaki-700 font-medium hover:text-keyaki-800 inline-flex items-center">
+              事業所案内を見る
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"/>
+                <path d="m12 5 7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="card overflow-hidden">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3269.8!2d135.05!3d35.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDA2JzAwLjAiTiAxMzXCsDAzJzAwLjAiRQ!5e0!3m2!1sja!2sjp!4v1234567890"
+            width="100%" 
+            height="400" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="柏原けやき苑の地図"
+            class="w-full"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

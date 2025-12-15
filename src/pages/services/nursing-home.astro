@@ -1,0 +1,181 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const features = [
+  {
+    title: '24時間の介護体制',
+    description: '昼夜を問わず、専門スタッフが常駐し、利用者様の安全と安心をお守りします。',
+  },
+  {
+    title: '個別ケアプラン',
+    description: '利用者様お一人おひとりの状態やご希望に合わせた介護計画を作成します。',
+  },
+  {
+    title: '健康管理',
+    description: '定期的な健康チェックと、協力医療機関との連携により、健康管理をサポートします。',
+  },
+  {
+    title: '機能訓練',
+    description: '日常生活に必要な機能の維持・向上を目指し、専門スタッフによる機能訓練を行います。',
+  },
+];
+
+const dailySchedule = [
+  { time: '6:00', activity: '起床・洗面' },
+  { time: '7:30', activity: '朝食' },
+  { time: '9:00', activity: '入浴・機能訓練など' },
+  { time: '12:00', activity: '昼食' },
+  { time: '14:00', activity: 'レクリエーション・おやつ' },
+  { time: '18:00', activity: '夕食' },
+  { time: '21:00', activity: '就寝' },
+];
+---
+
+<BaseLayout 
+  title="特別養護老人ホーム・ショートステイ" 
+  description="柏原けやき苑の特別養護老人ホームとショートステイサービスのご案内。24時間体制で利用者様の生活をサポートします。"
+>
+  <!-- Page Header -->
+  <section class="bg-keyaki-800 text-white py-16 md:py-24">
+    <div class="container-main">
+      <p class="text-keyaki-300 text-sm tracking-widest uppercase mb-4">Nursing Home</p>
+      <h1 class="text-3xl md:text-4xl font-serif font-medium">特別養護老人ホーム<br class="sm:hidden" />・ショートステイ</h1>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <div class="bg-white border-b border-gray-100">
+    <div class="container-main py-3">
+      <nav class="text-sm text-gray-500">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-keyaki-700">ホーム</a></li>
+          <li>/</li>
+          <li><a href="/services/" class="hover:text-keyaki-700">支援サービス</a></li>
+          <li>/</li>
+          <li class="text-gray-900">特別養護老人ホーム・ショートステイ</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Overview -->
+  <section class="py-16 md:py-24">
+    <div class="container-main">
+      <div class="max-w-4xl mx-auto">
+        <div class="prose prose-lg">
+          <p class="text-lg text-gray-700 leading-relaxed">
+            特別養護老人ホームでは、施設サービス計画に基づき、入浴、排泄、食事などの介護、
+            その他日常生活上のお世話、健康管理および機能訓練などを行います。
+          </p>
+          <p class="text-lg text-gray-700 leading-relaxed mt-4">
+            ショートステイ（短期入所生活介護）では、在宅で介護されている方が一時的に施設に入所し、
+            入浴、排泄、食事などの介護や機能訓練を受けることができます。
+            介護者の方の休息やご都合に合わせてご利用いただけます。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="container-main">
+      <div class="text-center mb-12">
+        <p class="section-subtitle">Features</p>
+        <h2 class="section-title">サービスの特徴</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {features.map((feature) => (
+          <div class="card p-6">
+            <h3 class="text-lg font-medium text-gray-900 mb-2">{feature.title}</h3>
+            <p class="text-gray-600">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Daily Schedule -->
+  <section class="py-16 md:py-24">
+    <div class="container-main">
+      <div class="text-center mb-12">
+        <p class="section-subtitle">Daily Schedule</p>
+        <h2 class="section-title">一日の流れ</h2>
+      </div>
+      <div class="max-w-2xl mx-auto">
+        <div class="card overflow-hidden">
+          <div class="divide-y divide-gray-100">
+            {dailySchedule.map((item) => (
+              <div class="flex items-center p-4">
+                <span class="w-20 text-keyaki-700 font-medium">{item.time}</span>
+                <span class="text-gray-700">{item.activity}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <p class="text-sm text-gray-500 mt-4 text-center">
+          ※上記は一例です。利用者様の状態に合わせて対応いたします。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Facility Info -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="container-main">
+      <div class="text-center mb-12">
+        <p class="section-subtitle">Facility</p>
+        <h2 class="section-title">施設概要</h2>
+      </div>
+      <div class="max-w-3xl mx-auto">
+        <div class="card overflow-hidden">
+          <table class="w-full">
+            <tbody class="divide-y divide-gray-100">
+              <tr>
+                <th class="px-6 py-4 text-left text-sm font-medium text-gray-500 bg-gray-50 w-1/3">定員</th>
+                <td class="px-6 py-4 text-gray-900">
+                  特別養護老人ホーム（従来型）80名<br />
+                  ショートステイ 10名
+                </td>
+              </tr>
+              <tr>
+                <th class="px-6 py-4 text-left text-sm font-medium text-gray-500 bg-gray-50">対象者</th>
+                <td class="px-6 py-4 text-gray-900">
+                  要介護3〜5の認定を受けた方<br />
+                  （ショートステイは要支援1以上）
+                </td>
+              </tr>
+              <tr>
+                <th class="px-6 py-4 text-left text-sm font-medium text-gray-500 bg-gray-50">居室</th>
+                <td class="px-6 py-4 text-gray-900">4人部屋、2人部屋、個室</td>
+              </tr>
+              <tr>
+                <th class="px-6 py-4 text-left text-sm font-medium text-gray-500 bg-gray-50">設備</th>
+                <td class="px-6 py-4 text-gray-900">
+                  食堂、浴室（一般浴・機械浴）、機能訓練室、<br />
+                  医務室、相談室、多目的ホール など
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-keyaki-50">
+    <div class="container-main text-center">
+      <p class="text-gray-600 mb-6">
+        入所・ショートステイに関するご相談、施設見学も随時受け付けております。
+      </p>
+      <a href="/contact/" class="btn-primary">
+        お問い合わせ
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"/>
+          <path d="m12 5 7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

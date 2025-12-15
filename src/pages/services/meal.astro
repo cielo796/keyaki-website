@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const features = [
+  {
+    title: '栄養バランス',
+    description: '管理栄養士が栄養バランスを考慮したメニューを作成しています。',
+  },
+  {
+    title: '季節の食材',
+    description: '旬の食材を使用し、季節感のある食事を提供しています。',
+  },
+  {
+    title: '行事食',
+    description: 'お正月、節分、ひな祭りなど、季節の行事に合わせた特別メニューを提供しています。',
+  },
+  {
+    title: '個別対応',
+    description: 'きざみ食、ミキサー食など、利用者様の状態に合わせた食事形態に対応しています。',
+  },
+  {
+    title: '治療食',
+    description: '糖尿病食、腎臓病食など、疾患に応じた治療食も提供しています。',
+  },
+  {
+    title: '配食サービス',
+    description: '地域の高齢者の方への配食サービスも行っています。',
+  },
+];
+---
+
+<BaseLayout 
+  title="食事サービス" 
+  description="柏原けやき苑の食事サービスのご案内。栄養バランスと季節感を大切にした食事を提供しています。"
+>
+  <!-- Page Header -->
+  <section class="bg-keyaki-800 text-white py-16 md:py-24">
+    <div class="container-main">
+      <p class="text-keyaki-300 text-sm tracking-widest uppercase mb-4">Meal Service</p>
+      <h1 class="text-3xl md:text-4xl font-serif font-medium">食事サービス</h1>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <div class="bg-white border-b border-gray-100">
+    <div class="container-main py-3">
+      <nav class="text-sm text-gray-500">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-keyaki-700">ホーム</a></li>
+          <li>/</li>
+          <li><a href="/services/" class="hover:text-keyaki-700">支援サービス</a></li>
+          <li>/</li>
+          <li class="text-gray-900">食事サービス</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Overview -->
+  <section class="py-16 md:py-24">
+    <div class="container-main">
+      <div class="max-w-4xl mx-auto">
+        <div class="prose prose-lg">
+          <p class="text-lg text-gray-700 leading-relaxed">
+            何をどれだけ食べたかによって身体は変わっていきます。
+            食物のバランスをよく考え、健康的な生活を送っていただけるようなメニューを提供しています。
+          </p>
+          <p class="text-lg text-gray-700 leading-relaxed mt-4">
+            管理栄養士が中心となり、栄養バランスはもちろん、
+            季節感や見た目の美しさにもこだわった食事をお届けしています。
+            また、利用者様の咀嚼・嚥下機能や疾患に応じた食事形態にも対応しております。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="container-main">
+      <div class="text-center mb-12">
+        <p class="section-subtitle">Features</p>
+        <h2 class="section-title">食事サービスの特徴</h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {features.map((feature) => (
+          <div class="card p-6">
+            <h3 class="text-lg font-medium text-gray-900 mb-2">{feature.title}</h3>
+            <p class="text-gray-600 text-sm">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Delivery Service -->
+  <section class="py-16 md:py-24">
+    <div class="container-main">
+      <div class="max-w-4xl mx-auto">
+        <div class="card p-8 md:p-10">
+          <h2 class="text-2xl font-serif font-medium text-keyaki-800 mb-6">配食サービス</h2>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            地域にお住まいの高齢者の方を対象に、栄養バランスの取れたお弁当をご自宅にお届けする
+            配食サービスを行っています。お届け時に安否確認も行い、
+            地域の高齢者の方の健康管理と見守りに努めています。
+          </p>
+          <div class="bg-keyaki-50 rounded-lg p-6">
+            <h3 class="font-medium text-keyaki-800 mb-3">ご利用について</h3>
+            <ul class="space-y-2 text-gray-700 text-sm">
+              <li>・対象：丹波市内にお住まいの高齢者の方</li>
+              <li>・配達エリア：詳細はお問い合わせください</li>
+              <li>・料金：実費相当額</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-keyaki-50">
+    <div class="container-main text-center">
+      <p class="text-gray-600 mb-6">
+        食事サービス・配食サービスに関するご相談はお気軽にどうぞ。
+      </p>
+      <a href="/contact/" class="btn-primary">
+        お問い合わせ
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"/>
+          <path d="m12 5 7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

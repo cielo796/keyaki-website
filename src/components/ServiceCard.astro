@@ -1,0 +1,48 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  href: string;
+  icon?: string;
+  image?: string;
+}
+
+const { title, description, href, icon, image } = Astro.props;
+---
+
+<a href={href} class="group block card overflow-hidden">
+  {image && (
+    <div class="aspect-video overflow-hidden bg-keyaki-100">
+      <img 
+        src={image} 
+        alt={title}
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        loading="lazy"
+      />
+    </div>
+  )}
+  <div class="p-6">
+    <div class="flex items-start gap-4">
+      {icon && (
+        <div class="w-12 h-12 bg-keyaki-100 rounded-lg flex items-center justify-center text-keyaki-700 flex-shrink-0 group-hover:bg-keyaki-700 group-hover:text-white transition-colors duration-300">
+          <Fragment set:html={icon} />
+        </div>
+      )}
+      <div class="flex-1">
+        <h3 class="text-lg font-medium text-gray-900 group-hover:text-keyaki-700 transition-colors mb-2">
+          {title}
+        </h3>
+        <p class="text-sm text-gray-600 leading-relaxed">
+          {description}
+        </p>
+      </div>
+    </div>
+    <div class="mt-4 flex items-center text-keyaki-600 text-sm font-medium">
+      <span>詳しく見る</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14"/>
+        <path d="m12 5 7 7-7 7"/>
+      </svg>
+    </div>
+  </div>
+</a>

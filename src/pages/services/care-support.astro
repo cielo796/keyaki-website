@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const services = [
+  {
+    title: 'ケアプランの作成',
+    description: '利用者様の心身の状況やご希望をお伺いし、最適な介護サービス計画（ケアプラン）を作成します。',
+  },
+  {
+    title: '介護サービスの調整',
+    description: '各種介護サービス事業者との連絡調整を行い、サービスが円滑に提供されるようサポートします。',
+  },
+  {
+    title: '相談・助言',
+    description: '介護に関する様々なご相談に応じ、適切な助言を行います。',
+  },
+  {
+    title: '要介護認定の申請代行',
+    description: '要介護認定の申請手続きを代行いたします。',
+  },
+];
+
+const flow = [
+  { step: '01', title: 'ご相談', description: 'まずはお電話やご来所にて、お気軽にご相談ください。' },
+  { step: '02', title: '訪問・面談', description: 'ケアマネジャーがご自宅を訪問し、ご本人・ご家族のご要望をお伺いします。' },
+  { step: '03', title: 'ケアプラン作成', description: 'お伺いした内容をもとに、ケアプラン（原案）を作成します。' },
+  { step: '04', title: 'サービス担当者会議', description: '関係者が集まり、ケアプランの内容を確認・調整します。' },
+  { step: '05', title: 'サービス開始', description: 'ケアプランに基づいて、各種介護サービスが開始されます。' },
+];
+---
+
+<BaseLayout 
+  title="居宅介護支援事業所" 
+  description="柏原けやき苑の居宅介護支援事業所のご案内。ケアマネジャーがケアプランの作成から介護サービスの調整まで行います。"
+>
+  <!-- Page Header -->
+  <section class="bg-keyaki-800 text-white py-16 md:py-24">
+    <div class="container-main">
+      <p class="text-keyaki-300 text-sm tracking-widest uppercase mb-4">Care Support</p>
+      <h1 class="text-3xl md:text-4xl font-serif font-medium">居宅介護支援事業所</h1>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <div class="bg-white border-b border-gray-100">
+    <div class="container-main py-3">
+      <nav class="text-sm text-gray-500">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-keyaki-700">ホーム</a></li>
+          <li>/</li>
+          <li><a href="/services/" class="hover:text-keyaki-700">支援サービス</a></li>
+          <li>/</li>
+          <li class="text-gray-900">居宅介護支援事業所</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Overview -->
+  <section class="py-16 md:py-24">
+    <div class="container-main">
+      <div class="max-w-4xl mx-auto">
+        <div class="prose prose-lg">
+          <p class="text-lg text-gray-700 leading-relaxed">
+            居宅介護支援事業所では、介護支援専門員（ケアマネジャー）が、
+            介護を必要とする方やそのご家族のご相談に応じ、
+            心身の状況や生活環境、ご本人・ご家族のご希望を踏まえて、
+            適切な介護サービスが利用できるよう支援いたします。
+          </p>
+          <p class="text-lg text-gray-700 leading-relaxed mt-4">
+            ケアプラン（居宅サービス計画）の作成から、
+            サービス事業者との連絡調整、サービスの実施状況の確認まで、
+            一貫してサポートいたします。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="container-main">
+      <div class="text-center mb-12">
+        <p class="section-subtitle">Services</p>
+        <h2 class="section-title">サービス内容</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {services.map((service) => (
+          <div class="card p-6">
+            <h3 class="text-lg font-medium text-gray-900 mb-2">{service.title}</h3>
+            <p class="text-gray-600">{service.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Flow -->
+  <section class="py-16 md:py-24">
+    <div class="container-main">
+      <div class="text-center mb-12">
+        <p class="section-subtitle">Flow</p>
+        <h2 class="section-title">ご利用の流れ</h2>
+      </div>
+      <div class="max-w-3xl mx-auto">
+        <div class="space-y-6">
+          {flow.map((item) => (
+            <div class="card p-6 flex gap-6">
+              <div class="w-12 h-12 bg-keyaki-700 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">
+                {item.step}
+              </div>
+              <div>
+                <h3 class="text-lg font-medium text-gray-900 mb-1">{item.title}</h3>
+                <p class="text-gray-600">{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Note -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="container-main">
+      <div class="max-w-3xl mx-auto">
+        <div class="bg-keyaki-50 rounded-lg p-6 md:p-8">
+          <h3 class="text-lg font-medium text-keyaki-800 mb-4">ご利用にあたって</h3>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-keyaki-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              <span>居宅介護支援サービスの利用者負担はありません（介護保険から全額給付されます）。</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-keyaki-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              <span>要介護認定を受けていない方も、まずはご相談ください。認定申請の代行も行っております。</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-keyaki-50">
+    <div class="container-main text-center">
+      <p class="text-gray-600 mb-6">
+        介護に関するご相談はお気軽にどうぞ。まずはお電話ください。
+      </p>
+      <a href="/contact/" class="btn-primary">
+        お問い合わせ
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"/>
+          <path d="m12 5 7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

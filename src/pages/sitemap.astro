@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const siteStructure = [
+  {
+    title: 'ホーム',
+    href: '/',
+  },
+  {
+    title: '事業所案内',
+    href: '/about/',
+  },
+  {
+    title: '支援サービス',
+    href: '/services/',
+    children: [
+      { title: '特別養護老人ホーム・ショートステイ', href: '/services/nursing-home/' },
+      { title: 'ユニット型', href: '/services/unit/' },
+      { title: 'デイサービス', href: '/services/day-service/' },
+      { title: '居宅介護支援事業所', href: '/services/care-support/' },
+      { title: '食事サービス', href: '/services/meal/' },
+      { title: 'リハビリ（機能訓練）', href: '/services/rehabilitation/' },
+    ],
+  },
+  {
+    title: 'イベント・行事',
+    href: '/events/',
+  },
+  {
+    title: 'お問い合わせ',
+    href: '/contact/',
+  },
+  {
+    title: 'プライバシーポリシー',
+    href: '/privacy/',
+  },
+];
+---
+
+<BaseLayout 
+  title="サイトマップ" 
+  description="柏原けやき苑ウェブサイトのサイトマップ"
+>
+  <!-- Page Header -->
+  <section class="bg-keyaki-800 text-white py-16 md:py-24">
+    <div class="container-main">
+      <p class="text-keyaki-300 text-sm tracking-widest uppercase mb-4">Sitemap</p>
+      <h1 class="text-3xl md:text-4xl font-serif font-medium">サイトマップ</h1>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <div class="bg-white border-b border-gray-100">
+    <div class="container-main py-3">
+      <nav class="text-sm text-gray-500">
+        <ol class="flex items-center gap-2">
+          <li><a href="/" class="hover:text-keyaki-700">ホーム</a></li>
+          <li>/</li>
+          <li class="text-gray-900">サイトマップ</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <section class="py-16 md:py-24">
+    <div class="container-main">
+      <div class="max-w-3xl mx-auto">
+        <nav>
+          <ul class="space-y-6">
+            {siteStructure.map((item) => (
+              <li>
+                <a 
+                  href={item.href} 
+                  class="text-lg font-medium text-keyaki-700 hover:text-keyaki-800 hover:underline"
+                >
+                  {item.title}
+                </a>
+                {item.children && (
+                  <ul class="mt-3 ml-6 space-y-2">
+                    {item.children.map((child) => (
+                      <li>
+                        <a 
+                          href={child.href} 
+                          class="text-gray-600 hover:text-keyaki-700 hover:underline flex items-center gap-2"
+                        >
+                          <span class="w-1.5 h-1.5 bg-keyaki-300 rounded-full"></span>
+                          {child.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

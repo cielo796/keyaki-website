@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const annualEvents = [
+  { month: '1月', events: ['新年会', '初詣'] },
+  { month: '2月', events: ['節分（豆まき）', 'バレンタインデー'] },
+  { month: '3月', events: ['ひな祭り', '春のお彼岸'] },
+  { month: '4月', events: ['お花見', '入所式'] },
+  { month: '5月', events: ['端午の節句', '母の日'] },
+  { month: '6月', events: ['父の日', '家族交流会'] },
+  { month: '7月', events: ['七夕', '納涼祭'] },
+  { month: '8月', events: ['夏祭り', '盆踊り'] },
+  { month: '9月', events: ['敬老会', '秋のお彼岸'] },
+  { month: '10月', events: ['運動会', 'ハロウィン'] },
+  { month: '11月', events: ['文化祭', '紅葉ドライブ'] },
+  { month: '12月', events: ['クリスマス会', '年末行事'] },
+];
+
+const regularActivities = [
+  {
+    title: 'レクリエーション',
+    description: '毎日様々なレクリエーションを実施。ゲーム、歌、体操など楽しい時間を過ごします。',
+    frequency: '毎日',
+  },
+  {
+    title: '誕生日会',
+    description: '毎月、その月にお誕生日を迎える方をお祝いします。',
+    frequency: '毎月',
+  },
+  {
+    title: '外出行事',
+    description: '季節に合わせた外出行事を企画。お花見や紅葉狩りなど自然を楽しみます。',
+    frequency: '随時',
+  },
+  {
+    title: 'ボランティア訪問',
+    description: '地域のボランティアの方々による演奏会や交流会を開催しています。',
+    frequency: '随時',
+  },
+];
+---
+
+<BaseLayout 
+  title="イベント・行事" 
+  description="柏原けやき苑の年間行事とイベントのご案内。季節に合わせた様々な行事を開催しています。"
+>
+  <!-- Page Header -->
+  <section class="bg-keyaki-800 text-white py-16 md:py-24">
+    <div class="container-main">
+      <p class="text-keyaki-300 text-sm tracking-widest uppercase mb-4">Events</p>
+      <h1 class="text-3xl md:text-4xl font-serif font-medium">イベント・行事</h1>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <div class="bg-white border-b border-gray-100">
+    <div class="container-main py-3">
+      <nav class="text-sm text-gray-500">
+        <ol class="flex items-center gap-2">
+          <li><a href="/" class="hover:text-keyaki-700">ホーム</a></li>
+          <li>/</li>
+          <li class="text-gray-900">イベント・行事</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Introduction -->
+  <section class="py-16 md:py-24">
+    <div class="container-main">
+      <div class="max-w-4xl mx-auto text-center">
+        <p class="text-lg text-gray-700 leading-relaxed">
+          柏原けやき苑では、季節を感じていただける様々な行事やイベントを開催しています。<br />
+          利用者様に楽しく充実した毎日を過ごしていただけるよう、<br />
+          職員一同心を込めて企画・運営しております。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Annual Events -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="container-main">
+      <div class="text-center mb-12">
+        <p class="section-subtitle">Annual Events</p>
+        <h2 class="section-title">年間行事</h2>
+      </div>
+      <div class="max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {annualEvents.map((item) => (
+            <div class="card p-4">
+              <div class="text-keyaki-700 font-medium mb-2">{item.month}</div>
+              <ul class="space-y-1">
+                {item.events.map((event) => (
+                  <li class="text-sm text-gray-600">{event}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <p class="text-sm text-gray-500 mt-6 text-center">
+          ※行事の内容・日程は年度により変更になる場合があります。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Regular Activities -->
+  <section class="py-16 md:py-24">
+    <div class="container-main">
+      <div class="text-center mb-12">
+        <p class="section-subtitle">Activities</p>
+        <h2 class="section-title">定期的な活動</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {regularActivities.map((activity) => (
+          <div class="card p-6">
+            <div class="flex items-start justify-between mb-2">
+              <h3 class="text-lg font-medium text-gray-900">{activity.title}</h3>
+              <span class="text-xs bg-keyaki-100 text-keyaki-700 px-2 py-1 rounded">{activity.frequency}</span>
+            </div>
+            <p class="text-gray-600 text-sm">{activity.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-keyaki-50">
+    <div class="container-main text-center">
+      <p class="text-gray-600 mb-6">
+        行事やイベントに関するご質問はお気軽にお問い合わせください。
+      </p>
+      <a href="/contact/" class="btn-primary">
+        お問い合わせ
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"/>
+          <path d="m12 5 7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
