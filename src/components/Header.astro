@@ -2,159 +2,164 @@
 const currentPath = Astro.url.pathname;
 
 const navigation = [
-  { name: 'ホーム', href: '/' },
+  { name: 'HOME', href: '/' },
   { name: '事業所案内', href: '/about/' },
-  { 
-    name: '支援サービス', 
+  {
+    name: '支援サービス',
     href: '/services/',
     children: [
       { name: '特別養護老人ホーム・ショートステイ', href: '/services/nursing-home/' },
       { name: 'ユニット型', href: '/services/unit/' },
       { name: 'デイサービス', href: '/services/day-service/' },
       { name: '居宅介護支援事業所', href: '/services/care-support/' },
-      { name: '食事サービス', href: '/services/meal/' },
-      { name: 'リハビリ（機能訓練）', href: '/services/rehabilitation/' },
-    ]
+      { name: '給食サービス', href: '/services/meal/' },
+      { name: 'リハビリ・機能訓練', href: '/services/rehabilitation/' },
+    ],
   },
   { name: 'イベント・行事', href: '/events/' },
   { name: 'お問い合わせ', href: '/contact/' },
 ];
 
 function isActive(href: string): boolean {
-  if (href === '/') {
-    return currentPath === '/';
-  }
+  if (href === '/') return currentPath === '/';
   return currentPath.startsWith(href);
 }
 ---
 
-<header class="bg-white shadow-sm sticky top-0 z-50">
-  <!-- Top bar -->
-  <div class="bg-keyaki-800 text-white py-2">
-    <div class="container-main flex justify-between items-center text-sm">
-      <p class="hidden sm:block">社会福祉法人 丹波柏原福祉会</p>
-      <div class="flex items-center gap-6">
-        <a href="tel:0795-73-1185" class="flex items-center gap-2 hover:text-keyaki-200 transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-          </svg>
+<header class="relative z-50 bg-white shadow-sm">
+  <div
+    class="border-b border-keyaki-100/80 bg-[#d7e5ef]"
+    style="background-image: linear-gradient(to bottom, rgba(215, 229, 239, 0.75), rgba(215, 229, 239, 0.9)), url('/images/head_bg-1024x53.jpg'); background-repeat: repeat-x; background-position: center top; background-size: auto 84px;"
+  >
+    <div class="container-main py-4 md:py-5">
+      <div class="md:hidden">
+        <a href="/" class="inline-flex flex-col leading-tight">
+          <span class="text-xs font-medium text-gray-800">社会福祉法人 丹波柏原福祉会</span>
+          <span class="mt-1 text-[2.6rem] font-serif font-semibold tracking-wide text-[#de8b47]">柏原けやき苑</span>
+        </a>
+        <p class="mt-2 text-sm text-gray-700">〒669-3313 兵庫県丹波市柏原町北山289-1</p>
+        <a
+          href="tel:0795-73-1185"
+          class="mt-2 inline-flex items-center gap-1 rounded-full bg-white/85 px-4 py-2 text-[2rem] font-bold leading-none tracking-[0.01em] text-[#1fa73d] shadow-sm"
+        >
+          <span class="text-base font-semibold">TEL</span>
           <span>0795-73-1185</span>
         </a>
-        <span class="hidden md:inline text-keyaki-300">|</span>
-        <p class="hidden md:flex items-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
-          </svg>
-          <span>受付 8:30〜17:30</span>
-        </p>
+      </div>
+
+      <div class="hidden items-end justify-between gap-6 md:flex">
+        <a href="/" class="inline-flex flex-col leading-tight">
+          <span class="text-sm font-medium text-gray-800 lg:text-base">社会福祉法人 丹波柏原福祉会</span>
+          <span class="mt-1 text-5xl font-serif font-semibold tracking-wide text-[#de8b47] lg:text-6xl">柏原けやき苑</span>
+        </a>
+
+        <div class="text-right">
+          <p class="text-sm text-gray-700 lg:text-base">〒669-3313 兵庫県丹波市柏原町北山289-1</p>
+          <a
+            href="tel:0795-73-1185"
+            class="mt-2 inline-block text-3xl font-bold leading-none tracking-[0.02em] text-[#1fa73d] lg:text-4xl xl:text-5xl"
+          >
+            TEL0795-73-1185
+          </a>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Main navigation -->
-  <div class="container-main">
-    <div class="flex items-center justify-between py-4">
-      <!-- Logo -->
-      <a href="/" class="flex items-center gap-3 group">
-        <div class="w-12 h-12 bg-keyaki-700 rounded-full flex items-center justify-center text-white group-hover:bg-keyaki-600 transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22v-7l-2-2"/>
-            <path d="M17 8v.8A6 6 0 0 1 13.8 14v0a6.5 6.5 0 0 1-1.8 4.5v0"/>
-            <path d="M7 8v.8A6 6 0 0 0 10.2 14v0a6.5 6.5 0 0 0 1.8 4.5v0"/>
-            <path d="M12 2a4 4 0 0 0-4 4c0 1.5.8 2.8 2 3.5"/>
-            <path d="M12 2a4 4 0 0 1 4 4c0 1.5-.8 2.8-2 3.5"/>
-            <path d="M12 6a2 2 0 0 0-2 2"/>
-            <path d="M12 6a2 2 0 0 1 2 2"/>
-          </svg>
-        </div>
-        <div>
-          <h1 class="text-xl md:text-2xl font-serif font-medium text-keyaki-800">柏原けやき苑</h1>
-          <p class="text-xs text-gray-500 hidden sm:block">利用者様に満足していただける介護サービスを</p>
-        </div>
-      </a>
+  <div class="bg-[#20ab33] text-white">
+    <div class="container-main">
+      <div class="hidden h-14 items-center justify-between lg:flex">
+        <nav class="flex h-full items-center gap-1">
+          {navigation.map((item) => (
+            <div class="relative group h-full">
+              <a
+                href={item.href}
+                class={`inline-flex h-full items-center px-5 text-base font-semibold transition-colors ${
+                  isActive(item.href) ? 'bg-white/20' : 'hover:bg-white/15'
+                }`}
+              >
+                {item.name}
+                {item.children && (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="ml-1 h-4 w-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                )}
+              </a>
 
-      <!-- Desktop Navigation -->
-      <nav class="hidden lg:flex items-center gap-1">
-        {navigation.map((item) => (
-          <div class="relative group">
-            <a 
-              href={item.href}
-              class={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
-                isActive(item.href) 
-                  ? 'text-keyaki-700 bg-keyaki-50' 
-                  : 'text-gray-700 hover:text-keyaki-700 hover:bg-keyaki-50'
-              }`}
-            >
-              {item.name}
               {item.children && (
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline-block ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m6 9 6 6 6-6"/>
-                </svg>
-              )}
-            </a>
-            {item.children && (
-              <div class="absolute left-0 mt-1 w-64 bg-white rounded-lg shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                <div class="py-2">
+                <div class="absolute left-0 top-full z-50 mt-0 hidden min-w-[280px] border border-gray-100 bg-white py-2 text-gray-700 shadow-lg group-hover:block">
                   {item.children.map((child) => (
-                    <a 
-                      href={child.href}
-                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-keyaki-50 hover:text-keyaki-700 transition-colors"
-                    >
+                    <a href={child.href} class="block px-4 py-2 text-sm hover:bg-keyaki-50 hover:text-keyaki-700">
                       {child.name}
                     </a>
                   ))}
                 </div>
-              </div>
-            )}
-          </div>
-        ))}
-      </nav>
+              )}
+            </div>
+          ))}
+        </nav>
 
-      <!-- Mobile menu button -->
-      <button 
-        type="button"
-        class="lg:hidden p-2 text-gray-700 hover:text-keyaki-700 hover:bg-keyaki-50 rounded-md transition-colors"
-        id="mobile-menu-button"
-        aria-label="メニューを開く"
-        aria-expanded="false"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" id="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="4" x2="20" y1="12" y2="12"/>
-          <line x1="4" x2="20" y1="6" y2="6"/>
-          <line x1="4" x2="20" y1="18" y2="18"/>
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden" id="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M18 6 6 18"/>
-          <path d="m6 6 12 12"/>
-        </svg>
-      </button>
+        <a href="/contact/" class="rounded-full p-2 transition-colors hover:bg-white/15" aria-label="お問い合わせ">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="7" />
+            <path d="m21 21-4.3-4.3" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="flex items-center justify-between py-2.5 lg:hidden">
+        <div class="flex items-center gap-2">
+          <a href="tel:0795-73-1185" class="inline-flex items-center rounded-full bg-white/15 px-3 py-1.5 text-xs font-semibold">
+            電話する
+          </a>
+          <a href="/contact/" class="inline-flex items-center rounded-full bg-white/15 px-3 py-1.5 text-xs font-semibold">
+            問い合わせ
+          </a>
+        </div>
+        <button
+          type="button"
+          id="mobile-menu-button"
+          class="inline-flex items-center gap-2 rounded-md px-2.5 py-2 transition-colors hover:bg-white/15"
+          aria-label="メニューを開く"
+          aria-expanded="false"
+        >
+          <span class="text-xs font-semibold tracking-[0.2em]">MENU</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" id="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="12" y2="12" />
+            <line x1="4" x2="20" y1="18" y2="18" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" class="hidden h-6 w-6" id="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg>
+        </button>
+      </div>
     </div>
-  </div>
 
-  <!-- Mobile Navigation -->
-  <div class="lg:hidden hidden" id="mobile-menu">
-    <div class="border-t border-gray-100 bg-white">
-      <nav class="container-main py-4 space-y-1">
+    <div id="mobile-menu" class="hidden border-t border-white/20 bg-[#20ab33] lg:hidden">
+      <nav class="container-main py-2">
         {navigation.map((item) => (
-          <div>
-            <a 
+          <div class="border-b border-white/15 last:border-b-0">
+            <a
               href={item.href}
-              class={`block px-4 py-3 text-sm font-medium rounded-md ${
-                isActive(item.href) 
-                  ? 'text-keyaki-700 bg-keyaki-50' 
-                  : 'text-gray-700 hover:text-keyaki-700 hover:bg-keyaki-50'
-              }`}
+              class={`block px-2 py-3 text-[15px] font-semibold transition-colors ${isActive(item.href) ? 'text-white' : 'text-white/90 hover:text-white'}`}
             >
               {item.name}
             </a>
             {item.children && (
-              <div class="ml-4 mt-1 space-y-1">
+              <div class="mb-2 ml-2 border-l border-white/20 pb-2 pl-4">
                 {item.children.map((child) => (
-                  <a 
-                    href={child.href}
-                    class="block px-4 py-2 text-sm text-gray-600 hover:text-keyaki-700 hover:bg-keyaki-50 rounded-md"
-                  >
+                  <a href={child.href} class="block px-2 py-2 text-sm text-white/90 hover:text-white">
                     {child.name}
                   </a>
                 ))}
@@ -174,11 +179,10 @@ function isActive(href: string): boolean {
   const closeIcon = document.getElementById('close-icon');
 
   menuButton?.addEventListener('click', () => {
-    const isOpen = mobileMenu?.classList.contains('hidden');
-    
+    const willOpen = mobileMenu?.classList.contains('hidden') ?? true;
     mobileMenu?.classList.toggle('hidden');
     menuIcon?.classList.toggle('hidden');
     closeIcon?.classList.toggle('hidden');
-    menuButton?.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    menuButton.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
   });
 </script>
